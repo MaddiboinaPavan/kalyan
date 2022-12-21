@@ -1,0 +1,36 @@
+
+
+CREATE COMPUTE MODULE GATHER_FLOW_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		 --CALL CopyMessageHeaders();
+--		  DECLARE I INTEGER 1;
+--		 DECLARE colref REFERENCE TO InputRoot.ComIbmGroupCompleteNode.Group.Replies.collage[1];
+--		 	WHILE (LASTMOVE(colref)) DO
+--		 		SET OutputRoot.JSON.Data.Item[I] = colref.Reply.Root.JSON.Data;
+--		 		SET I = I+1;
+--		 		MOVE colref NEXTSIBLING;
+--		 		
+--		 	END WHILE;
+--		  DECLARE J INTEGER 1;
+--		 DECLARE colref1 REFERENCE TO InputRoot.ComIbmGroupCompleteNode.Group.Replies.collage[1];
+--		 	WHILE (LASTMOVE(colref1)) DO
+--		 		SET OutputRoot.JSON.Data.Item[I] = colref1.Reply.Root.JSON.Data;
+--		 		SET J = J+1;
+--		 		MOVE colref1 NEXTSIBLING;
+
+--		
+		   -- END WHILE;
+		    CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
